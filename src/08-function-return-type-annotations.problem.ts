@@ -18,7 +18,18 @@ interface Post {
  * returns a user?
  */
 const makeUser = () => {
-  return {};
+  return {
+	  id: 1,
+	  firstName: "Chris",
+	  lastName: "Patti",
+	  role: "admin",
+	  posts: [
+		  {
+			  id: 1,
+			  title: "This is a post",
+		  },
+		],
+  };
 };
 
 it("Should return a valid user", () => {
