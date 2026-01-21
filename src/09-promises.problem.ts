@@ -9,12 +9,13 @@ interface LukeSkywalker {
   gender: string;
 }
 
-export const fetchLukeSkywalker = async (): LukeSkywalker => {
-  const data = await fetch("https://swapi.py4e.com/api/people/1").then(
-    (res) => {
-      return res.json();
-    }
-  );
+export const fetchLukeSkywalker = async (): Promise<LukeSkywalker> => {
+  // 1. Wait for the network response
+  const response = await fetch("https://swapi.py4e.com/api/people/1");
+  
+  // 2. Wait for the data to be parsed into JSON
+  const data: LukeSkywalker = await response.json();
 
+  // 3. Return the result
   return data;
 };
